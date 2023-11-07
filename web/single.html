@@ -111,6 +111,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $("#video").simplePlayer();
       });
     </script>
+    <script src="js/api.js"></script>
+    <script>
+      // 페이지가 로드될 때 이벤트 데이터를 가져와서 화면에 표시합니다.
+      document.addEventListener("DOMContentLoaded", async () => {
+        const eventData = await getEventData();
+        if (eventData) {
+          console.log(eventData);
+          updateEventDetails(eventData);
+        } else {
+          console.error("No event data to display.");
+        }
+      });
+
+      // 서버로부터 받은 데이터를 HTML 요소에 넣는 함수
+      function updateEventDetails(data) {
+        // 이미지 소스를 업데이트합니다.
+        document.querySelector(".w3ls_market_video_grid1 img").src =
+          data.poster;
+        document.querySelector(".w3ls_market_video_grid1 img").alt = data.title;
+
+        // 텍스트 컨텐츠를 업데이트합니다.
+        document.querySelector(
+          ".agile_tv_series_grid_right .fexi_header"
+        ).textContent = data.title;
+
+        // description부터 performer까지의 데이터를 업데이트합니다.
+        const paragraphs = document.querySelectorAll(
+          ".agile_tv_series_grid_right .fexi_header_para"
+        );
+
+        paragraphs[0].innerHTML = `<span>description<label>:</label></span> ${
+          data.introduction || ""
+        }`;
+        paragraphs[1].innerHTML = `<span>startDate<label>:</label></span> ${data.startDate}`;
+        paragraphs[2].innerHTML = `<span>endDate<label>:</label></span> ${data.endDate}`;
+        paragraphs[3].innerHTML = `<span>category<label>:</label></span> ${data.category}`;
+        paragraphs[4].innerHTML = `<span>region<label>:</label></span> ${data.region}`;
+        paragraphs[5].innerHTML = `<span>place<label>:</label></span> ${data.place}`;
+        paragraphs[6].innerHTML = `<span>performer<label>:</label></span> ${data.performer}`;
+      }
+    </script>
   </head>
 
   <body>
@@ -367,36 +408,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <div class="col-md-6 agile_tv_series_grid_left">
                     <div class="w3ls_market_video_grid1">
                       <!-- src = {poster} -->
-                      <img
-                        src="http://www.kopis.or.kr/upload/pfmPoster/PF_PF229303_231103_144012.jpg"
-                        alt=" "
-                        class="img-responsive"
-                      />
+                      <img src="" alt=" " class="img-responsive" />
                     </div>
                   </div>
                   <div class="col-md-6 agile_tv_series_grid_right">
-                    <p class="fexi_header">{title}</p>
+                    <p class="fexi_header">title</p>
                     <p class="fexi_header_para">
-                      <span>설명<label>:</label></span>
-                      {설명내용/null일수도 있음}
+                      <span>description<label>:</label></span>
                     </p>
                     <p class="fexi_header_para">
-                      <span>시작일 <label>:</label></span> {2023-11-18}
+                      <span>startDate <label>:</label></span>
                     </p>
                     <p class="fexi_header_para">
-                      <span>종료일<label>:</label></span> {2023-11-18}
+                      <span>endDate<label>:</label></span>
                     </p>
                     <p class="fexi_header_para">
-                      <span>카테고리<label>:</label></span> {연극}
+                      <span>category<label>:</label></span>
                     </p>
                     <p class="fexi_header_para">
-                      <span>지역<label>:</label></span> {연극}
+                      <span>region<label>:</label></span>
                     </p>
                     <p class="fexi_header_para">
-                      <span>장소<label>:</label></span> {연극}
+                      <span>place<label>:</label></span>
                     </p>
                     <p class="fexi_header_para">
-                      <span>연극자 <label>:</label></span> {String}
+                      <span>performer<label>:</label></span>
                     </p>
                   </div>
                   <div class="clearfix"></div>
