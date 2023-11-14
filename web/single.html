@@ -136,20 +136,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           ".agile_tv_series_grid_right .fexi_header"
         ).textContent = data.title;
 
-        // description부터 performer까지의 데이터를 업데이트합니다.
+        // 각 항목별 텍스트를 업데이트합니다.
         const paragraphs = document.querySelectorAll(
-          ".agile_tv_series_grid_right .fexi_header_para"
+          ".agile_tv_series_grid_right .fexi_header_para span"
         );
 
-        paragraphs[0].innerHTML = `<span>description<label>:</label></span> ${
-          data.introduction || ""
-        }`;
-        paragraphs[1].innerHTML = `<span>startDate<label>:</label></span> ${data.startDate}`;
-        paragraphs[2].innerHTML = `<span>endDate<label>:</label></span> ${data.endDate}`;
-        paragraphs[3].innerHTML = `<span>category<label>:</label></span> ${data.category}`;
-        paragraphs[4].innerHTML = `<span>region<label>:</label></span> ${data.region}`;
-        paragraphs[5].innerHTML = `<span>place<label>:</label></span> ${data.place}`;
-        paragraphs[6].innerHTML = `<span>performer<label>:</label></span> ${data.performer}`;
+        paragraphs[0].textContent = `isStart: ${data.isStart || ""}`;
+        paragraphs[1].textContent = `description: ${data.introduction || ""}`;
+        paragraphs[2].textContent = `startDate: ${data.startDate}`;
+        paragraphs[3].textContent = `endDate: ${data.endDate}`;
+        paragraphs[4].textContent = `category: ${data.category}`;
+        paragraphs[5].textContent = `region: ${data.region}`;
+        paragraphs[6].textContent = `place: ${data.place}`;
+        paragraphs[7].textContent = `performer: ${data.performer}`;
       }
     </script>
   </head>
@@ -413,6 +412,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   </div>
                   <div class="col-md-6 agile_tv_series_grid_right">
                     <p class="fexi_header">title</p>
+                    <p class="fexi_header_para">
+                      <span>isStart<label>:</label></span>
+                    </p>
                     <p class="fexi_header_para">
                       <span>description<label>:</label></span>
                     </p>
