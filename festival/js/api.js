@@ -1,5 +1,5 @@
-const id = 1447;
-const BASE_URL = `http://15.164.104.206:8080/event/${id}`;
+const id = 480;
+const BASE_URL = `http://54.180.73.89:8080/event/${id}`;
 
 async function getEventData() {
   try {
