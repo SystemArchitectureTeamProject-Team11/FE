@@ -1,9 +1,9 @@
 const BASE_URL = "http://54.180.73.89:8080/event";
 const SEARCH_URL = "http://54.180.73.89:8080/event/search";
 
-async function getEventData(id) {
+async function getEventData() {
   try {
-    const response = await fetch(`${BASE_URL}/${id}`);
+    const response = await fetch(`${BASE_URL}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -15,9 +15,9 @@ async function getEventData(id) {
   }
 }
 
-async function getRegionData() {
+async function getRegionData(region) {
   try {
-    const response = await fetch(SEARCH_URL);
+    const response = await fetch(`${SEARCH_URL}?region=${region}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

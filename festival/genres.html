@@ -62,10 +62,9 @@
   			width: 180px;
   			height: 230px;
 		}
-
-		.festival-details{
+		.festival-details {
 			font-size: 14px;
-			text-align: center;
+			margin-left: 35px;
 		}
 		.w3l-movie-text h6 a {
   			font-size: 12px; 
@@ -82,118 +81,147 @@
     } 
     .browse-inner {
       height: 25vh; 
-      background-color: lightblue; /* 시각적인 목적을 위한 배경색 */
+      
       margin-bottom: 10px;
     }
 	</style>
 	 <script src="js/genres_api.js"></script>
 	 <script>
-// HTML 요소를 찾아서 데이터를 채워 넣는 함수
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', async () => { 
   try {
-    const ids = [119, 125]; // 원하는 이벤트의 ID 목록
+    const fetchedData = await getEventData(); // API에서 데이터 받아오기
+    const itemsPerInner = 5;
+    const totalItems = fetchedData.length;
+    const totalPages = Math.ceil(totalItems / 20);
     const containerDivs = document.querySelectorAll('.browse-inner');
-    const defaultPoster = 'images/default_img.png';
-    let idIndex = 0;
-    for (const container of containerDivs) {
-      for (let i = 0; i < 5; i++) {
-        if (idIndex >= ids.length) break; // 모든 ID를 사용하면 종료
-        
-        const id = ids[idIndex]; // ID 목록의 해당 인덱스의 요소 사용
-        idIndex++;
 
-        const fetchedData = await getEventData(id);
-        if (fetchedData && fetchedData.title) {
-          try {
-        const fetchedPoster = fetchedData.poster ? fetchedData.poster : defaultPoster;
+    // 페이지네이션을 동적으로 생성
+    const paginationContainer = document.querySelector('.blog-pagenat-wthree ul');
+    paginationContainer.innerHTML = '';
 
-        const festivalElement = `
+    for (let i = 1; i <= totalPages; i++) {
+      const pageLink = document.createElement('li');
+      const pageAnchor = document.createElement('a');
+      pageAnchor.href = `genres.html?page=${i}`; // 페이지 링크 설정
+      pageAnchor.textContent = i; // 페이지 번호 설정
+
+      pageLink.appendChild(pageAnchor);
+      paginationContainer.appendChild(pageLink);
+    }
+    
+    for (let i = 0; i < fetchedData.length; i++) { // 받아온 데이터를 순회하면서 출력
+      const eventData = fetchedData[i];
+      const pageIndex = Math.floor(i / itemsPerInner);
+
+      if (pageIndex >= containerDivs.length) {
+        break; // 페이지네이션 처리: 데이터가 너무 많아서 페이지 초과 시 중단
+      }
+
+      const festivalElement = `
         <div class="col-md-2 w3l-movie-gride-agile">
           <a href="single.html" class="hvr-shutter-out-horizontal">
-            <img src="${fetchedPoster}" title="${fetchedData.title}" alt="${fetchedData.title}" class="festival-img">
+            <img src="${eventData.poster}" title="${eventData.title}" alt="${eventData.title}" class="festival-img">
           </a>
           <div class="mid-1">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">${fetchedData.title}</a></h6>
+              <h6><a href="single.html">${eventData.title}</a></h6>
             </div>
             <div class="mid-2">
               <div class="festival-details">
-                <p>${fetchedData.startDate} ~ ${fetchedData.endDate}</p>
+                <p>${eventData.period}</p>
               </div>
               <div class="clearfix"></div>
             </div>
           </div>
           <div class="ribben two">
-            <p>${fetchedData.isStart}</p>
+            <p>${eventData.isStart}</p>
           </div>
         </div>
-        `;
-        
-        // 축제 정보 출력
-        container.insertAdjacentHTML('beforeend', festivalElement);
-      } catch (error) {
-        console.error('Error fetching festival data:', error);
-      }
-      
-    }
+      `;
+
+      // 이벤트 정보를 출력
+      containerDivs[pageIndex].insertAdjacentHTML('beforeend', festivalElement);
+    }} catch (error) {
+    console.error('Error fetching event data:', error);
   }
+
+
 
     // 이벤트 리스너 설정
     const regions = document.querySelectorAll('.multi-column-dropdown a');
     regions.forEach(region => {
       region.addEventListener('click', async (event) => {
         event.preventDefault();
-        const selectedRegion = event.target.textContent.trim();
-        container.innerHTML = '';
         
+        region = region.textContent;
+        console.log(region);
+
         try {
-          let idIndex = 0;
-            for (const container of containerDivs) {
-            for (let i = 0; i < 5; i++) {
-              if (idIndex >= ids.length) break; // 모든 ID를 사용하면 종료
+          const containerDivs = document.querySelectorAll('.browse-inner');
         
-              const id = ids[idIndex]; // ID 목록의 해당 인덱스의 요소 사용
-                idIndex++;
-              const fetchedData = await getRegionData(id);
+           // 기존 페이지 정보 초기화
+          containerDivs.forEach(containerDiv => {
+          containerDiv.innerHTML = '';
+          });
+
+          const fetchedData = await getRegionData(region);
+          console.log(fetchedData);
+          const itemsPerInner = 5;
+          const totalItems = fetchedData.length;
+          const totalPages = Math.ceil(totalItems / 20);
+          
+          // 페이지네이션을 동적으로 생성
+          const paginationContainer = document.querySelector('.blog-pagenat-wthree ul');
+          paginationContainer.innerHTML = '';
+
+          for (let i = 1; i <= totalPages; i++) {
+            const pageLink = document.createElement('li');
+            const pageAnchor = document.createElement('a');
+            pageAnchor.href = `genres.html?page=${i}`; // 페이지 링크 설정
+            pageAnchor.textContent = i; // 페이지 번호 설정
+
+            pageLink.appendChild(pageAnchor);
+            paginationContainer.appendChild(pageLink);
+            }
+
+    for (let i = 0; i < fetchedData.length; i++) { // 받아온 데이터를 순회하면서 출력
+      const eventData = fetchedData[i];
+      const pageIndex = Math.floor(i / itemsPerInner);
+
+      if (pageIndex >= containerDivs.length) {
+        break; // 페이지네이션 처리: 데이터가 너무 많아서 페이지 초과 시 중단
+      }
 
             const festivalElement = `
-              <div class="col-md-2 w3l-movie-gride-agile">
-                <a href="single.html" class="hvr-shutter-out-horizontal">
-                  <img src="${fetchedData.poster}" title="${fetchedData.title}" alt="${fetchedData.title}" class="festival-img">
-                </a>
-                <div class="mid-1">
-                  <div class="w3l-movie-text">
-                    <h6><a href="single.html">${fetchedData.title}</a></h6>
-                  </div>
-                  <div class="mid-2">
-                    <div class="festival-details">
-                      <p>${fetchedData.startDate} ~ ${fetchedData.endDate}</p>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                </div>
-                <div class="ribben two">
-                  <p>${fetchedData.isStart}</p>
-                </div>
-                </div>
+            <div class="col-md-2 w3l-movie-gride-agile">
+          <a href="single.html" class="hvr-shutter-out-horizontal">
+            <img src="${eventData.poster}" title="${eventData.title}" alt="${eventData.title}" class="festival-img">
+          </a>
+          <div class="mid-1">
+            <div class="w3l-movie-text">
+              <h6><a href="single.html">${eventData.title}</a></h6>
+            </div>
+            <div class="mid-2">
+              <div class="festival-details">
+                <p>${eventData.period}</p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="ribben two">
+            <p>${eventData.isStart}</p>
+          </div>
+        </div>
               `;
+              containerDivs[pageIndex].insertAdjacentHTML('beforeend', festivalElement);
             
-            //select region 시
-            if (fetchedData.region === selectedRegion) {
-              container.insertAdjacentHTML('beforeend', festivalElement);
-            }
-          }}
-        } catch (error) {
+          }}catch (error) {
           console.error('Error fetching festival data:', error);
         }
       });
     });
+  }); 
 
-
-  }} catch (error) {
-    console.error('Error:', error);
-  }
-});
 	 </script>
   </head>
         
@@ -300,9 +328,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           <div class="blog-pagenat-wthree">
             <ul>
               <li><a class="frist" href="#">Prev</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
+              <li><a href="genres.html">1</a></li>
+              <li><a href="genres.html">2</a></li>
+              <li><a href="genres.html">3</a></li>
               <li><a class="last" href="#">Next</a></li>
             </ul>
           </div>
