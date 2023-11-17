@@ -89,35 +89,34 @@
 	 <script>
 document.addEventListener('DOMContentLoaded', async () => { 
   try {
-    const fetchedData = await getEventData(); // API에서 데이터 받아오기
+    // get parameter 'page' from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentPage = parseInt(urlParams.get('page')) || 1; // default value = 1
+
+    const fetchedData = await getEventData(); // get data fro API
     const itemsPerInner = 5;
+    const itemsPerPage = 20;
     const totalItems = fetchedData.length;
     const totalPages = Math.ceil(totalItems / 20);
     const containerDivs = document.querySelectorAll('.browse-inner');
-
-    // 페이지네이션을 동적으로 생성
-    const paginationContainer = document.querySelector('.blog-pagenat-wthree ul');
-    paginationContainer.innerHTML = '';
-
-    for (let i = 1; i <= totalPages; i++) {
-      const pageLink = document.createElement('li');
-      const pageAnchor = document.createElement('a');
-      pageAnchor.href = `genres.html?page=${i}`; // 페이지 링크 설정
-      pageAnchor.textContent = i; // 페이지 번호 설정
-
-      pageLink.appendChild(pageAnchor);
-      paginationContainer.appendChild(pageLink);
-    }
     
-    for (let i = 0; i < fetchedData.length; i++) { // 받아온 데이터를 순회하면서 출력
-      const eventData = fetchedData[i];
-      const pageIndex = Math.floor(i / itemsPerInner);
+    //print the information
+    function displayEventData(dataToShow){
+      containerDivs.forEach((div) => {
+        div.innerHTML = '';
+      });
 
-      if (pageIndex >= containerDivs.length) {
-        break; // 페이지네이션 처리: 데이터가 너무 많아서 페이지 초과 시 중단
-      }
+      //Output while looping through received data
+      for (let j = 0; j < dataToShow.length; j++) { 
+        const eventData =dataToShow[j];
+        const pageIndex = Math.floor(j/itemsPerInner);
 
-      const festivalElement = `
+        //Pagination processing: stops when there is too much data and the page exceeds the page limit.
+        if (pageIndex >= containerDivs.length) {
+          break; 
+        }
+
+       const festivalElement = `
         <div class="col-md-2 w3l-movie-gride-agile">
           <a href="single.html" class="hvr-shutter-out-horizontal">
             <img src="${eventData.poster}" title="${eventData.title}" alt="${eventData.title}" class="festival-img">
@@ -139,88 +138,174 @@ document.addEventListener('DOMContentLoaded', async () => {
         </div>
       `;
 
-      // 이벤트 정보를 출력
+      //Print information
       containerDivs[pageIndex].insertAdjacentHTML('beforeend', festivalElement);
-    }} catch (error) {
+      }
+    }
+    
+    //Clear the page
+    function clearContainerDivs(){
+      containerDivs.forEach((div) => {
+        div.innerHTML= '';
+      })
+    }
+
+    //Generate pagination dynamically
+    const paginationContainer = document.querySelector('.blog-pagenat-wthree ul');
+    paginationContainer.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageLink = document.createElement('li');
+      const pageAnchor = document.createElement('a');
+      pageAnchor.href = `genres.html?page=${i}`; //Set page link
+      pageAnchor.textContent = i; //Set page number
+
+      pageLink.appendChild(pageAnchor);
+      paginationContainer.appendChild(pageLink);
+
+      pageAnchor.addEventListener('click', async (event) => {
+      event.preventDefault();
+
+      const pageClicked = parseInt(event.target.textContent);
+      const startIndex = (pageClicked -1)*itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+      displayEventData(dataToShow);
+      });
+    }
+      
+    //Display initial data on page load 
+    function setCurrentPageData() {
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+      displayEventData(dataToShow);
+    }
+
+  setCurrentPageData();
+
+   }catch (error) {
     console.error('Error fetching event data:', error);
   }
 
-
-
-    // 이벤트 리스너 설정
-    const regions = document.querySelectorAll('.multi-column-dropdown a');
+  // Set eventListener (When select the specific region)
+  const regions = document.querySelectorAll('.multi-column-dropdown a');
     regions.forEach(region => {
       region.addEventListener('click', async (event) => {
         event.preventDefault();
         
         region = region.textContent;
-        console.log(region);
 
         try {
-          const containerDivs = document.querySelectorAll('.browse-inner');
-        
-           // 기존 페이지 정보 초기화
+          // get parameter 'page' from URL
+          const urlParams = new URLSearchParams(window.location.search);
+          const currentPage = parseInt(urlParams.get('page')) || 1; //Default = 1
+          fetchedData = await getRegionData(region);
+          totalItems = fetchedData.length;
+          totalPages = Math.ceil(totalItems / 20);
+          containerDivs = document.querySelectorAll('.browse-inner');
+          const itemsPerInner = 5;
+
+           // initialize the container
           containerDivs.forEach(containerDiv => {
           containerDiv.innerHTML = '';
           });
 
-          const fetchedData = await getRegionData(region);
           console.log(fetchedData);
-          const itemsPerInner = 5;
-          const totalItems = fetchedData.length;
-          const totalPages = Math.ceil(totalItems / 20);
-          
-          // 페이지네이션을 동적으로 생성
+ 
+          //print the information
+          function displayEventData(dataToShow){
+            containerDivs.forEach((div) => {
+              div.innerHTML = '';
+            });
+
+            //Output while looping through received data
+            for (let j = 0; j < dataToShow.length; j++) {
+              const eventData =dataToShow[j];
+              const pageIndex = Math.floor(j/itemsPerInner);
+
+               //Pagination processing: stops when there is too much data and the page exceeds the page limit.
+              if (pageIndex >= containerDivs.length) {
+                break;
+              }
+
+              const festivalElement = `
+                <div class="col-md-2 w3l-movie-gride-agile">
+                  <a href="single.html" class="hvr-shutter-out-horizontal">
+                    <img src="${eventData.poster}" title="${eventData.title}" alt="${eventData.title}" class="festival-img">
+                  </a>
+                  <div class="mid-1">
+                    <div class="w3l-movie-text">
+                      <h6><a href="single.html">${eventData.title}</a></h6>
+                    </div>
+                    <div class="mid-2">
+                      <div class="festival-details">
+                        <p>${eventData.period}</p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                  <div class="ribben two">
+                    <p>${eventData.isStart}</p>
+                  </div>
+                </div>
+                `;
+
+              //Print information
+              containerDivs[pageIndex].insertAdjacentHTML('beforeend', festivalElement);
+              }
+            }
+    
+          //Clear the page
+          function clearContainerDivs(){
+            containerDivs.forEach((div) => {
+            div.innerHTML= '';
+          })}
+
+          //Generate pagination dynamically
           const paginationContainer = document.querySelector('.blog-pagenat-wthree ul');
           paginationContainer.innerHTML = '';
 
           for (let i = 1; i <= totalPages; i++) {
             const pageLink = document.createElement('li');
             const pageAnchor = document.createElement('a');
-            pageAnchor.href = `genres.html?page=${i}`; // 페이지 링크 설정
-            pageAnchor.textContent = i; // 페이지 번호 설정
+            pageAnchor.href = `genres.html?page=${i}`; //Set page link
+            pageAnchor.textContent = i; //Set page number
 
             pageLink.appendChild(pageAnchor);
             paginationContainer.appendChild(pageLink);
-            }
 
-    for (let i = 0; i < fetchedData.length; i++) { // 받아온 데이터를 순회하면서 출력
-      const eventData = fetchedData[i];
-      const pageIndex = Math.floor(i / itemsPerInner);
+            pageAnchor.addEventListener('click', async (event) => {
+              event.preventDefault();
 
-      if (pageIndex >= containerDivs.length) {
-        break; // 페이지네이션 처리: 데이터가 너무 많아서 페이지 초과 시 중단
-      }
+              const pageClicked = parseInt(event.target.textContent);
+              const startIndex = (pageClicked -1)*20;
+              const endIndex = startIndex + 20;
+              const dataToShow = fetchedData.slice(startIndex, endIndex);
 
-            const festivalElement = `
-            <div class="col-md-2 w3l-movie-gride-agile">
-          <a href="single.html" class="hvr-shutter-out-horizontal">
-            <img src="${eventData.poster}" title="${eventData.title}" alt="${eventData.title}" class="festival-img">
-          </a>
-          <div class="mid-1">
-            <div class="w3l-movie-text">
-              <h6><a href="single.html">${eventData.title}</a></h6>
-            </div>
-            <div class="mid-2">
-              <div class="festival-details">
-                <p>${eventData.period}</p>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </div>
-          <div class="ribben two">
-            <p>${eventData.isStart}</p>
-          </div>
-        </div>
-              `;
-              containerDivs[pageIndex].insertAdjacentHTML('beforeend', festivalElement);
-            
-          }}catch (error) {
+              displayEventData(dataToShow);
+            });
+          }
+      
+          //Display initial data on page load 
+          function setCurrentPageData() {
+            const startIndex = (currentPage - 1) * 20
+            const endIndex = startIndex + 20;
+            const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+            displayEventData(dataToShow);
+          }
+
+          setCurrentPageData();
+
+        }catch (error) {
           console.error('Error fetching festival data:', error);
         }
       });
     });
-  }); 
+  });
 
 	 </script>
   </head>
