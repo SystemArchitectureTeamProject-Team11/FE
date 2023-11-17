@@ -4,6 +4,11 @@
 
 [Figma](https://www.figma.com/file/rpMLepVcAmtfArTp1z6xgJ/Untitled?type=design&node-id=0%3A1&mode=design&t=liIRlM1UxxfoYDM1-1)
 
-<img width="1280" alt="image" src="https://github.com/SystemArchitectureTeamProject-Team11/FE/assets/112792949/51e3077b-49d0-4ba7-a133-0fdea672d419">
+<h2>Second Pages</h2>
+<h4>1) List of festivals : Festivals for every regions </h4>
+<img width="640" alt="image" src="https://github.com/SystemArchitectureTeamProject-Team11/FE/assets/112792949/cd968a87-1962-46e6-be24-6ffcbf893dad">
+
+<h4>2) List of festivals : Festivals for specific region (This is an example for Seoul.) </h4>
+<img width="640" alt="image" src="https://github.com/SystemArchitectureTeamProject-Team11/FE/assets/112792949/96311b8d-d412-4e01-badc-4ed318a74599">
 
 # Parcel
