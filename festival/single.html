@@ -114,6 +114,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <script src="js/api.js"></script>
     <script>
+      const BASE_URL = `http://54.180.73.89:8080/event`;
+
+      async function getEventData(id) {
+        try {
+          const response = await fetch(`${BASE_URL}/${id}`); // Make a GET request to the BASE_URL
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`); // Handle HTTP errors
+          }
+          const data = await response.json(); // Parse the JSON data
+          return data; // Return the data
+        } catch (error) {
+          console.error("Error fetching event data:", error); // Log any errors
+          return null; // Return null or handle the error as needed
+        }
+      }
+    </script>
+    <script>
       function getQueryParam(param) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(param);
