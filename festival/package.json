@@ -10,5 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.7.1"
+  },
+  "devDependencies": {
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.31"
   }
 }

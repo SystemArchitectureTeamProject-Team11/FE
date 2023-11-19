@@ -1,85 +1,20 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>전국 축제~</title>
-    <style>
-      .w3_agile_banner_bottom_grid .item {
-        margin-bottom: 300px; /* 원하는 간격으로 조절하세요 */
-        position: relative;
-      }
-      .w3l-movie-gride-agile {
-        height: 400px; /* 원하는 높이로 조절하세요 */
-        overflow: hidden;
-      }
-
-      .w3l-movie-gride-agile img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* 이미지를 일정한 비율로 조절합니다 */
-      }
-
-      .w3_agile_banner_bottom_grid .w3l-movie-text {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        background: rgba(
-          255,
-          255,
-          255,
-          0.7
-        ); /* 요소 배경을 추가하여 텍스트가 더 잘 보이도록 함 */
-        padding: 10px; /* 내용과 경계 사이의 간격 조절 */
-        color: #fff; /* 텍스트 색상을 흰색으로 설정 */
-        box-sizing: border-box; /* padding 값이 width에 포함되도록 box-sizing 설정 */
-        overflow: hidden;
-      }
-
-      .w3_agile_banner_bottom_grid .mid-1 {
-        position: absolute;
-        bottom: 0%; /* title의 위치 조절, 적절한 값으로 조절하세요 */
-        left: 0;
-        right: 0;
-        text-align: center;
-        padding: 10px; /* 내용과 경계 사이의 간격 조절 */
-        color: #fff; /* 텍스트 색상을 흰색으로 설정 */
-        box-sizing: border-box; /* padding 값이 width에 포함되도록 box-sizing 설정 */
-        transform: translateY(
-          -50%
-        ); /* title을 수직 중앙 정렬하기 위한 CSS transform */
-        margin-top: 20px; /* title과 startDate 사이의 간격을 조절 */
-      }
-
-      .w3_agile_banner_bottom_grid .mid-2 {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        text-align: center;
-        padding: 10px; /* 내용과 경계 사이의 간격 조절 */
-        color: #fff; /* 텍스트 색상을 흰색으로 설정 */
-        box-sizing: border-box; /* padding 값이 width에 포함되도록 box-sizing 설정 */
-        margin-top: 20px; /* title과 startDate 사이의 간격을 조절 */
-      }
-    </style>
+    <title>Festivals</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta
       name="keywords"
       content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
     />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="js/genres_api.js"></script>
     <script type="application/x-javascript">
       addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-      	function hideURLbar(){ window.scrollTo(0,1); }
+      function hideURLbar(){ window.scrollTo(0,1); }
     </script>
     <!-- //for-mobile-apps -->
     <link
@@ -89,6 +24,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       media="all"
     />
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/medile.css" rel="stylesheet" type="text/css" />
+    <link href="css/single.css" rel="stylesheet" type="text/css" />
     <link
       rel="stylesheet"
       href="css/contactstyle.css"
@@ -101,62 +38,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       type="text/css"
       media="all"
     />
-    <link href="css/single.css" rel="stylesheet" type="text/css" />
-    <link href="css/medile.css" rel="stylesheet" type="text/css" />
-    <!-- banner-slider -->
-    <link href="css/jquery.slidey.min.css" rel="stylesheet" />
-    <!-- //banner-slider -->
-    <!-- pop-up -->
-    <link
-      href="css/popuo-box.css"
-      rel="stylesheet"
-      type="text/css"
-      media="all"
-    />
-    <!-- //pop-up -->
     <!-- font-awesome icons -->
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <!-- //font-awesome icons -->
-    <!-- js -->
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <!-- //js -->
-    <!-- banner-bottom-plugin -->
+    <!-- news-css -->
     <link
-      href="css/owl.carousel.css"
       rel="stylesheet"
+      href="news-css/news.css"
       type="text/css"
       media="all"
     />
-    <script src="js/owl.carousel.js"></script>
-    <script>
-      const BASE_URL = "http://54.180.73.89:8080/event/";
-
-      async function getEventData(id) {
-        try {
-          const response = await fetch(`${BASE_URL}${id}`);
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          const data = await response.json();
-          return data;
-        } catch (error) {
-          console.error("Error fetching event data:", error);
-          return null;
-        }
-      }
-    </script>
-    <script>
-      $(document).ready(function () {
-        $("#owl-demo").owlCarousel({
-          autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-          items: 5,
-          itemsDesktop: [640, 4],
-          itemsDesktopSmall: [414, 3],
-        });
-      });
-    </script>
-    <!-- //banner-bottom-plugin -->
+    <!-- //news-css -->
+    <!-- list-css -->
+    <link
+      rel="stylesheet"
+      href="list-css/list.css"
+      type="text/css"
+      media="all"
+    />
+    <!-- //list-css -->
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
     <link
       href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300"
       rel="stylesheet"
@@ -177,213 +80,438 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       });
     </script>
     <!-- start-smoth-scrolling -->
+    <link
+      href="css/owl.carousel.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <script src="js/owl.carousel.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#owl-demo").owlCarousel({
+          autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+          items: 5,
+          itemsDesktop: [640, 5],
+          itemsDesktopSmall: [414, 4],
+        });
+      });
+    </script>
+    <style>
+      .festival-img {
+        width: 180px;
+        height: 230px;
+      }
+      .festival-details {
+        font-size: 14px;
+        margin-left: 35px;
+      }
+      .w3l-movie-text h6 a {
+        font-size: 12px;
+      }
+      .ribben.two p {
+        font-size: 8px;
+      }
+      .dropdown-menu.multi-column.columns-3 {
+        width: 230px;
+      }
+      .col-md-2.w3l-movie-gride-agile {
+        width: 19%;
+        margin: 5.7px;
+      }
+      .browse-inner {
+        height: 25vh;
+
+        margin-bottom: 10px;
+      }
+    </style>
+    <script>
+      const BASE_URL = "http://54.180.73.89:8080/event";
+      const SEARCH_URL = "http://54.180.73.89:8080/event/search";
+
+      async function getEventData() {
+        try {
+          const response = await fetch(`${BASE_URL}`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching event data:", error);
+          return null;
+        }
+      }
+
+      async function getRegionData(region) {
+        try {
+          const response = await fetch(`${SEARCH_URL}?region=${region}`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching event data:", error);
+          return null;
+        }
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          // get parameter 'page' from URL
+          const urlParams = new URLSearchParams(window.location.search);
+          const currentPage = parseInt(urlParams.get("page")) || 1; // default value = 1
+
+          const fetchedData = await getEventData(); // get data fro API
+          const itemsPerInner = 5;
+          const itemsPerPage = 20;
+          const totalItems = fetchedData.length;
+          const totalPages = Math.ceil(totalItems / 20);
+          const containerDivs = document.querySelectorAll(".browse-inner");
+
+          //print the information
+          function displayEventData(dataToShow) {
+            containerDivs.forEach((div) => {
+              div.innerHTML = "";
+            });
+
+            //Output while looping through received data
+            for (let j = 0; j < dataToShow.length; j++) {
+              const eventData = dataToShow[j];
+              const pageIndex = Math.floor(j / itemsPerInner);
+              //console.log(eventData);
+              //Pagination processing: stops when there is too much data and the page exceeds the page limit.
+              if (pageIndex >= containerDivs.length) {
+                break;
+              }
+
+              const festivalElement = `
+        <div class="col-md-2 w3l-movie-gride-agile">
+          <a href="single.html?id=${eventData.id}" class="hvr-shutter-out-horizontal">
+            <img src="${eventData.poster}" title="${eventData.title}" alt="${eventData.title}" class="festival-img">
+          </a>
+          <div class="mid-1">
+            <div class="w3l-movie-text">
+              <h6><a href="single.html?id=${eventData.id}">${eventData.title}</a></h6>
+            </div>
+            <div class="mid-2">
+              <div class="festival-details">
+                <p>${eventData.period}</p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="ribben two">
+            <p>${eventData.isStart}</p>
+          </div>
+        </div>
+      `;
+
+              //Print information
+              containerDivs[pageIndex].insertAdjacentHTML(
+                "beforeend",
+                festivalElement
+              );
+            }
+          }
+
+          //Clear the page
+          function clearContainerDivs() {
+            containerDivs.forEach((div) => {
+              div.innerHTML = "";
+            });
+          }
+
+          //Generate pagination dynamically
+          const paginationContainer = document.querySelector(
+            ".blog-pagenat-wthree ul"
+          );
+          paginationContainer.innerHTML = "";
+
+          for (let i = 1; i <= totalPages; i++) {
+            const pageLink = document.createElement("li");
+            const pageAnchor = document.createElement("a");
+            pageAnchor.href = `index.html?page=${i}`; //Set page link
+            pageAnchor.textContent = i; //Set page number
+
+            pageLink.appendChild(pageAnchor);
+            paginationContainer.appendChild(pageLink);
+
+            pageAnchor.addEventListener("click", async (event) => {
+              event.preventDefault();
+
+              const pageClicked = parseInt(event.target.textContent);
+              const startIndex = (pageClicked - 1) * itemsPerPage;
+              const endIndex = startIndex + itemsPerPage;
+              const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+              displayEventData(dataToShow);
+            });
+          }
+
+          //Display initial data on page load
+          function setCurrentPageData() {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+            displayEventData(dataToShow);
+          }
+
+          setCurrentPageData();
+        } catch (error) {
+          console.error("Error fetching event data:", error);
+        }
+
+        // Set eventListener (When select the specific region)
+        const regions = document.querySelectorAll(".multi-column-dropdown a");
+        regions.forEach((region) => {
+          region.addEventListener("click", async (event) => {
+            event.preventDefault();
+
+            region = region.textContent;
+
+            try {
+              // get parameter 'page' from URL
+              const urlParams = new URLSearchParams(window.location.search);
+              const currentPage = parseInt(urlParams.get("page")) || 1; //Default = 1
+              fetchedData = await getRegionData(region);
+              totalItems = fetchedData.length;
+              totalPages = Math.ceil(totalItems / 20);
+              containerDivs = document.querySelectorAll(".browse-inner");
+              const itemsPerInner = 5;
+
+              // initialize the container
+              containerDivs.forEach((containerDiv) => {
+                containerDiv.innerHTML = "";
+              });
+
+              //print the information
+              function displayEventData(dataToShow) {
+                containerDivs.forEach((div) => {
+                  div.innerHTML = "";
+                });
+
+                //Output while looping through received data
+                for (let j = 0; j < dataToShow.length; j++) {
+                  const eventData = dataToShow[j];
+                  const pageIndex = Math.floor(j / itemsPerInner);
+                  console.log(eventData);
+                  //Pagination processing: stops when there is too much data and the page exceeds the page limit.
+                  if (pageIndex >= containerDivs.length) {
+                    break;
+                  }
+
+                  const festivalElement = `
+                <div class="col-md-2 w3l-movie-gride-agile">
+                  <a href="single.html?id=${eventData.id}" class="hvr-shutter-out-horizontal">
+                    <img src="${eventData.poster}" title="${eventData.title}" alt="${eventData.title}" class="festival-img">
+                  </a>
+                  <div class="mid-1">
+                    <div class="w3l-movie-text">
+                      <h6><a href="single.html?id=${eventData.id}">${eventData.title}</a></h6>
+                    </div>
+                    <div class="mid-2">
+                      <div class="festival-details">
+                        <p>${eventData.period}</p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                  <div class="ribben two">
+                    <p>${eventData.isStart}</p>
+                  </div>
+                </div>
+                `;
+
+                  //Print information
+                  containerDivs[pageIndex].insertAdjacentHTML(
+                    "beforeend",
+                    festivalElement
+                  );
+                }
+              }
+
+              //Clear the page
+              function clearContainerDivs() {
+                containerDivs.forEach((div) => {
+                  div.innerHTML = "";
+                });
+              }
+
+              //Generate pagination dynamically
+              const paginationContainer = document.querySelector(
+                ".blog-pagenat-wthree ul"
+              );
+              paginationContainer.innerHTML = "";
+
+              for (let i = 1; i <= totalPages; i++) {
+                const pageLink = document.createElement("li");
+                const pageAnchor = document.createElement("a");
+                pageAnchor.href = `genres.html?page=${i}`; //Set page link
+                pageAnchor.textContent = i; //Set page number
+
+                pageLink.appendChild(pageAnchor);
+                paginationContainer.appendChild(pageLink);
+
+                pageAnchor.addEventListener("click", async (event) => {
+                  event.preventDefault();
+
+                  const pageClicked = parseInt(event.target.textContent);
+                  const startIndex = (pageClicked - 1) * 20;
+                  const endIndex = startIndex + 20;
+                  const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+                  displayEventData(dataToShow);
+                });
+              }
+
+              //Display initial data on page load
+              function setCurrentPageData() {
+                const startIndex = (currentPage - 1) * 20;
+                const endIndex = startIndex + 20;
+                const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+                displayEventData(dataToShow);
+              }
+
+              setCurrentPageData();
+            } catch (error) {
+              console.error("Error fetching festival data:", error);
+            }
+          });
+        });
+      });
+    </script>
   </head>
 
   <body>
     <!-- header -->
-    <div class="header">
-      <div class="container">
-        <div class="w3layouts_logo">
-          <a href="index.html"
-            ><h1>YOU<span>FESTIVAL</span></h1></a
-          >
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
+    <div class="header"></div>
     <!-- //header -->
-    <!-- banner -->
-    <div id="slidey" style="display: none">
-      <ul></ul>
-    </div>
+    <!-- //bootstrap-pop-up -->
 
-    <script src="js/jquery.slidey.js"></script>
-    <script src="js/jquery.dotdotdot.min.js"></script>
-    <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", async () => {
-        for (let id = 1442; id <= 1447; id++) {
-          const eventData = await getEventData(id);
-          if (eventData) {
-            createBannerSlide(eventData);
-          } else {
-            console.error(`No event data for ID ${id}.`);
-          }
-        }
-
-        // Initialize the slidey plugin
-        $("#slidey").slidey({
-          interval: 8000,
-          listCount: 5,
-          autoplay: false,
-          showList: true,
-        });
-        $(".slidey-list-description").dotdotdot();
-      });
-
-      // 서버로부터 받은 데이터를 HTML 요소에 넣는 함수
-      function createBannerSlide(data) {
-        // Create list item
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `
-			<img src="${data.poster}" alt="${data.title}">
-			<p class='title'>${data.title}</p>
-			<p class='description'>${data.startDate} - ${data.endDate}</p>
-		  `;
-        // Append list item to the slidey
-        document.querySelector("#slidey ul").appendChild(listItem);
-      }
-    </script>
-    <!-- //banner -->
-    <!-- banner-bottom -->
-    <div class="banner-bottom">
+    <!-- nav -->
+    <div class="movies_nav">
       <div class="container">
-        <div class="w3_agile_banner_bottom_grid">
-          <div id="festivalItemsContainer" class="item-container">
-            <!-- 여러 개의 아이템이 여기에 추가될 것입니다. -->
-          </div>
-
-          <script type="text/javascript">
-            // 페이지가 로드될 때 이벤트 데이터를 가져와서 화면에 표시합니다.
-            document.addEventListener("DOMContentLoaded", async () => {
-              const startId = 1;
-              const endId = 100;
-              const festivalIds = Array.from(
-                { length: endId - startId + 1 },
-                (_, index) => startId + index
-              );
-
-              for (const id of festivalIds) {
-                const eventData = await getEventData(id);
-                if (eventData) {
-                  createFestivalItem(eventData);
-                } else {
-                  console.error(`No event data for ID ${id}.`);
-                }
-              }
-            });
-
-            // 서버로부터 받은 데이터를 HTML 요소에 넣는 함수
-            function createFestivalItem(data) {
-              // 부모 컨테이너
-              const container = document.getElementById(
-                "festivalItemsContainer"
-              );
-
-              // 아이템 요소 생성
-              const item = document.createElement("div");
-              item.className = "item col-md-4"; // 각 아이템을 한 줄에 3개씩 나열
-
-              // 아이템 내용 생성
-              const itemContent = `
-                        <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                            <a href="single.html" class="hvr-shutter-out-horizontal">
-                                <img src="${data.poster}" title="${data.title}" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="single.html">${data.title}</a></h6>
-									<br>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>${data.startDate}~</p>
-                                    <div class="block-stars">
-                                        <p>${data.endDate}</p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>NEW</p>
-                            </div>
-                        </div>
-                    `;
-
-              // 아이템에 내용 추가
-              item.innerHTML = itemContent;
-
-              // 부모 컨테이너에 아이템 추가
-              container.appendChild(item);
-            }
-          </script>
-        </div>
-      </div>
-    </div>
-    <!-- //banner-bottom -->
-    <div class="general_social_icons">
-      <nav class="social">
-        <ul>
-          <li class="w3_twitter">
-            <a href="#">Twitter <i class="fa fa-twitter"></i></a>
-          </li>
-          <li class="w3_facebook">
-            <a href="#">Facebook <i class="fa fa-facebook"></i></a>
-          </li>
-          <li class="w3_dribbble">
-            <a href="#">Dribbble <i class="fa fa-dribbble"></i></a>
-          </li>
-          <li class="w3_g_plus">
-            <a href="#">Google+ <i class="fa fa-google-plus"></i></a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <!-- general -->
-    <div class="general"></div>
-    <!-- //general -->
-    <!-- Latest-tv-series -->
-    <div class="Latest-tv-series"></div>
-    <!-- pop-up-box -->
-    <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-    <!--//pop-up-box -->
-    <div id="small-dialog" class="mfp-hide">
-      <iframe
-        src="https://player.vimeo.com/video/164819130?title=0&byline=0"
-      ></iframe>
-    </div>
-    <div id="small-dialog1" class="mfp-hide">
-      <iframe src="https://player.vimeo.com/video/148284736"></iframe>
-    </div>
-    <div id="small-dialog2" class="mfp-hide">
-      <iframe
-        src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"
-      ></iframe>
-    </div>
-    <script>
-      $(document).ready(function () {
-        $(".w3_play_icon,.w3_play_icon1,.w3_play_icon2").magnificPopup({
-          type: "inline",
-          fixedContentPos: false,
-          fixedBgPos: true,
-          overflowY: "auto",
-          closeBtnInside: true,
-          preloader: false,
-          midClick: true,
-          removalDelay: 300,
-          mainClass: "my-mfp-zoom-in",
-        });
-      });
-    </script>
-    <!-- //Latest-tv-series -->
-    <!-- footer -->
-    <div class="footer">
-      <div class="container">
-        <div class="w3ls_footer_grid">
-          <div class="col-md-5 w3ls_footer_grid1_left">
-            <p>
-              &copy; 2016 One Movies. All rights reserved | Design by
-              <a href="http://w3layouts.com/">W3layouts</a>
-            </p>
-          </div>
-          <div class="col-md-6 w3ls_footer_grid_right">
-            <a href="index.html"
-              ><h2>YOU<span>FESTIVAL</span></h2></a
+        <nav class="navbar navbar-default">
+          <div class="navbar-header navbar-left">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
             >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
           </div>
-          <div class="clearfix"></div>
-        </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse navbar-right"
+            id="bs-example-navbar-collapse-1"
+          >
+            <nav>
+              <ul class="nav navbar-nav">
+                <li class="w3_home_act"><a href="index.html">Home</a></li>
+                <li class="dropdown active">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                    >region <b class="caret"></b
+                  ></a>
+                  <ul class="dropdown-menu multi-column columns-3">
+                    <li>
+                      <div class="col-sm-4">
+                        <ul class="multi-column-dropdown">
+                          <li><a href="genres.html">서울</a></li>
+                          <li><a href="genres.html">도</a></li>
+                          <li><a href="genres.html">대구</a></li>
+                          <li><a href="genres.html">광주</a></li>
+                          <li><a href="genres.html">세종</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-sm-4">
+                        <ul class="multi-column-dropdown">
+                          <li><a href="genres.html">인천</a></li>
+                          <li><a href="genres.html">대전</a></li>
+                          <li><a href="genres.html">제주</a></li>
+                          <li><a href="genres.html">부산</a></li>
+                          <li><a href="genres.html">울산</a></li>
+                        </ul>
+                      </div>
+                      <div class="clearfix"></div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </nav>
       </div>
     </div>
+    <!-- //nav -->
+
+    <!-- /w3l-medile-movies-grids -->
+    <div class="general-agileits-w3l">
+      <div class="w3l-medile-movies-grids">
+        <!-- /movie-browse-agile -->
+        <div class="movie-browse-agile">
+          <!--/browse-agile-w3ls -->
+          <div class="browse-agile-w3ls general-w3ls">
+            <div class="tittle-head">
+              <h4 class="latest-text">List of Festivals</h4>
+              <div class="container">
+                <div class="agileits-single-top">
+                  <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="genres.html">Festivals</a></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <!-- browse-inner 클래스를 가진 div를 row 클래스로 묶습니다. -->
+              <div class="row">
+                <div class="col">
+                  <div class="browse-inner"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="browse-inner"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="browse-inner"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="browse-inner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--//browse-agile-w3ls -->
+          <div class="blog-pagenat-wthree">
+            <ul></ul>
+          </div>
+        </div>
+        <!-- //movie-browse-agile -->
+        <!--body wrapper start-->
+        <!--body wrapper start-->
+      </div>
+      <!-- //w3l-medile-movies-grids -->
+    </div>
+    <!-- //comedy-w3l-agileits -->
+    <!-- footer -->
+
     <!-- //footer -->
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -406,17 +534,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="text/javascript">
       $(document).ready(function () {
         /*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
+                    var defaults = {
+                    containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear' 
+                    };
+                */
 
         $().UItoTop({ easingType: "easeOutQuart" });
       });
     </script>
     <!-- //here ends scrolling icon -->
+    <a href="#" id="toTop" style="display: none"
+      ><span id="toTopHover"></span>To Top</a
+    >
   </body>
 </html>
