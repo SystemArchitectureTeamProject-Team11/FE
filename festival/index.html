@@ -300,7 +300,7 @@
                 for (let j = 0; j < dataToShow.length; j++) {
                   const eventData = dataToShow[j];
                   const pageIndex = Math.floor(j / itemsPerInner);
-                  console.log(eventData);
+                  //console.log(eventData);
                   //Pagination processing: stops when there is too much data and the page exceeds the page limit.
                   if (pageIndex >= containerDivs.length) {
                     break;
@@ -352,7 +352,7 @@
               for (let i = 1; i <= totalPages; i++) {
                 const pageLink = document.createElement("li");
                 const pageAnchor = document.createElement("a");
-                pageAnchor.href = `genres.html?page=${i}`; //Set page link
+                pageAnchor.href = `index.html?page=${i}`; //Set page link
                 pageAnchor.textContent = i; //Set page number
 
                 pageLink.appendChild(pageAnchor);
@@ -428,20 +428,20 @@
                     <li>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genres.html">서울</a></li>
-                          <li><a href="genres.html">도</a></li>
-                          <li><a href="genres.html">대구</a></li>
-                          <li><a href="genres.html">광주</a></li>
-                          <li><a href="genres.html">세종</a></li>
+                          <li><a href="index.html">서울</a></li>
+                          <li><a href="index.html">도</a></li>
+                          <li><a href="index.html">대구</a></li>
+                          <li><a href="index.html">광주</a></li>
+                          <li><a href="index.html">세종</a></li>
                         </ul>
                       </div>
                       <div class="col-sm-4">
                         <ul class="multi-column-dropdown">
-                          <li><a href="genres.html">인천</a></li>
-                          <li><a href="genres.html">대전</a></li>
-                          <li><a href="genres.html">제주</a></li>
-                          <li><a href="genres.html">부산</a></li>
-                          <li><a href="genres.html">울산</a></li>
+                          <li><a href="index.html">인천</a></li>
+                          <li><a href="index.html">대전</a></li>
+                          <li><a href="index.html">제주</a></li>
+                          <li><a href="index.html">부산</a></li>
+                          <li><a href="index.html">울산</a></li>
                         </ul>
                       </div>
                       <div class="clearfix"></div>
@@ -469,7 +469,7 @@
                 <div class="agileits-single-top">
                   <ol class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="genres.html">Festivals</a></li>
+                    <li><a href="index.html">Festivals</a></li>
                   </ol>
                 </div>
               </div>
