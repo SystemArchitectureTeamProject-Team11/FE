@@ -12,6 +12,12 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
 
+      - name: List directory contents
+        run: ls -lah
+
+      - name: Change to project directory
+        run: cd festival
+
       - name: Cache node modules
         uses: actions/cache@v2
         with:
