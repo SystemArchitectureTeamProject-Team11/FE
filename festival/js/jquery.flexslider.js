@@ -8,7 +8,6 @@
  *
  * Contributing author: Tyler Smith (@mbmufffin)
  */
-import $ from "jquery";
 
 (function ($) {
   //FlexSlider: Object Instance

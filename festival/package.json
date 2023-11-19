@@ -9,6 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.7.1"
+    "autoprefixer": "^10.4.16",
+    "babel-preset-env": "^1.7.0",
+    "jquery": "^3.7.1",
+    "node-sass": "^9.0.0",
+    "parcel-bundler": "^1.12.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.31"
   }
 }
