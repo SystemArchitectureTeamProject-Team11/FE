@@ -1,5 +1,3 @@
-import $ from "jquery";
-
 var YTdeferred = jQuery.Deferred();
 
 window.onYouTubeIframeAPIReady = function () {

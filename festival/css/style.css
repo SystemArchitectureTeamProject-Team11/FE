@@ -254,7 +254,8 @@ a.w3_play_icon2 span {
   top: 36%;
 }
 .agile_tv_series_grid_right {
-  background: lavender;
+  font-size: 25px;
+  background: white;
   min-height: 811px;
   padding: 3em 3em 0;
   width: 48.6%;
@@ -280,7 +281,7 @@ p.fexi_header_para label {
 }
 p.fexi_header_para span {
   color: #212121;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
   float: left;
   width: 90%;

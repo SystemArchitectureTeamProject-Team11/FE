@@ -1,4 +1,3 @@
-const id = 480;
 const BASE_URL = `http://54.180.73.89:8080/event`;
 
 async function getEventData(id) {

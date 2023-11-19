@@ -10,7 +10,6 @@
  */
 
 // t: current time, b: begInnIng value, c: change In value, d: duration
-import $ from "jquery";
 
 jQuery.extend(jQuery.easing, {
   easeInQuad: function (x, t, b, c, d) {

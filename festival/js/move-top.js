@@ -1,5 +1,4 @@
 /* UItoTop jQuery Plugin 1.2 | Matt Varone | http://www.mattvarone.com/web-design/uitotop-jquery-plugin */
-import $ from "jquery";
 
 (function ($) {
   $.fn.UItoTop = function (options) {
