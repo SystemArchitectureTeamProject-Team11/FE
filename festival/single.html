@@ -113,9 +113,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <script src="js/api.js"></script>
     <script>
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // 페이지 로드 시 id 값을 가져옴
+      const eventId = getQueryParam("id");
+    </script>
+    <script>
       // 페이지가 로드될 때 이벤트 데이터를 가져와서 화면에 표시합니다.
       document.addEventListener("DOMContentLoaded", async () => {
-        const eventData = await getEventData();
+        const eventData = await getEventData(eventId);
         if (eventData) {
           console.log(eventData);
           updateEventDetails(eventData);

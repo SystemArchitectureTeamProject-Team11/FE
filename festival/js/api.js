@@ -1,9 +1,9 @@
 const id = 480;
-const BASE_URL = `http://54.180.73.89:8080/event/${id}`;
+const BASE_URL = `http://54.180.73.89:8080/event`;
 
-async function getEventData() {
+async function getEventData(id) {
   try {
-    const response = await fetch(BASE_URL); // Make a GET request to the BASE_URL
+    const response = await fetch(`${BASE_URL}/${id}`); // Make a GET request to the BASE_URL
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`); // Handle HTTP errors
     }

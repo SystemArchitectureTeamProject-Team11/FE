@@ -3,127 +3,166 @@
   <head>
     <title>Festivals</title>
     <!-- for-mobile-apps -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-            function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="keywords"
+      content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+    />
+    <script type="application/x-javascript">
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+                 function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
     <!-- //for-mobile-apps -->
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
-    <link href="css/medile.css" rel="stylesheet" type="text/css">
-    <link href="css/single.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/contactstyle.css" type="text/css" media="all">
-    <link rel="stylesheet" href="css/faqstyle.css" type="text/css" media="all">
+    <link
+      href="css/bootstrap.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/medile.css" rel="stylesheet" type="text/css" />
+    <link href="css/single.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="css/contactstyle.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="css/faqstyle.css"
+      type="text/css"
+      media="all"
+    />
     <!-- font-awesome icons -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
     <!-- //font-awesome icons -->
     <!-- news-css -->
-    <link rel="stylesheet" href="news-css/news.css" type="text/css" media="all">
+    <link
+      rel="stylesheet"
+      href="news-css/news.css"
+      type="text/css"
+      media="all"
+    />
     <!-- //news-css -->
     <!-- list-css -->
-    <link rel="stylesheet" href="list-css/list.css" type="text/css" media="all">
+    <link
+      rel="stylesheet"
+      href="list-css/list.css"
+      type="text/css"
+      media="all"
+    />
     <!-- //list-css -->
     <!-- js -->
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <!-- //js -->
-    <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300" rel="stylesheet" type="text/css">
+    <link
+      href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300"
+      rel="stylesheet"
+      type="text/css"
+    />
     <!-- start-smoth-scrolling -->
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){		
-                event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-            });
+      jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+          event.preventDefault();
+          $("html,body").animate(
+            { scrollTop: $(this.hash).offset().top },
+            1000
+          );
         });
+      });
     </script>
     <!-- start-smoth-scrolling -->
-    <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+    <link
+      href="css/owl.carousel.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
     <script src="js/owl.carousel.js"></script>
     <script>
-        $(document).ready(function() { 
-            $("#owl-demo").owlCarousel({
-         
-              autoPlay: 3000, //Set AutoPlay to 3 seconds
-         
-              items : 5,
-              itemsDesktop : [640,5],
-              itemsDesktopSmall : [414,4]
-         
-            });
-         
-        }); 
-    </script> 
-	<style>
-		.festival-img {
-  			width: 180px;
-  			height: 230px;
-		}
-		.festival-details {
-			font-size: 14px;
-			margin-left: 35px;
-		}
-		.w3l-movie-text h6 a {
-  			font-size: 12px; 
-		}
-		.ribben.two p {
-  			font-size: 8px; 
-		}
-		.dropdown-menu.multi-column.columns-3 {
- 			 width: 230px;  
-    }
-    .col-md-2.w3l-movie-gride-agile {
-      width: 19%; 
-      margin: 5.7px;
-    } 
-    .browse-inner {
-      height: 25vh; 
-      
-      margin-bottom: 10px;
-    }
-	</style>
-	 <script src="js/genres_api.js"></script>
-	 <script>
-document.addEventListener('DOMContentLoaded', async () => { 
-  try {
-    // get parameter 'page' from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const currentPage = parseInt(urlParams.get('page')) || 1; // default value = 1
+      $(document).ready(function () {
+        $("#owl-demo").owlCarousel({
+          autoPlay: 3000, //Set AutoPlay to 3 seconds
 
-    const fetchedData = await getEventData(); // get data fro API
-    const itemsPerInner = 5;
-    const itemsPerPage = 20;
-    const totalItems = fetchedData.length;
-    const totalPages = Math.ceil(totalItems / 20);
-    const containerDivs = document.querySelectorAll('.browse-inner');
-    
-    //print the information
-    function displayEventData(dataToShow){
-      containerDivs.forEach((div) => {
-        div.innerHTML = '';
+          items: 5,
+          itemsDesktop: [640, 5],
+          itemsDesktopSmall: [414, 4],
+        });
       });
+    </script>
+    <style>
+      .festival-img {
+        width: 180px;
+        height: 230px;
+      }
+      .festival-details {
+        font-size: 14px;
+        margin-left: 35px;
+      }
+      .w3l-movie-text h6 a {
+        font-size: 12px;
+      }
+      .ribben.two p {
+        font-size: 8px;
+      }
+      .dropdown-menu.multi-column.columns-3 {
+        width: 230px;
+      }
+      .col-md-2.w3l-movie-gride-agile {
+        width: 19%;
+        margin: 5.7px;
+      }
+      .browse-inner {
+        height: 25vh;
 
-      //Output while looping through received data
-      for (let j = 0; j < dataToShow.length; j++) { 
-        const eventData =dataToShow[j];
-        const pageIndex = Math.floor(j/itemsPerInner);
+        margin-bottom: 10px;
+      }
+    </style>
+    <script src="js/genres_api.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          // get parameter 'page' from URL
+          const urlParams = new URLSearchParams(window.location.search);
+          const currentPage = parseInt(urlParams.get("page")) || 1; // default value = 1
 
-        //Pagination processing: stops when there is too much data and the page exceeds the page limit.
-        if (pageIndex >= containerDivs.length) {
-          break; 
-        }
+          const fetchedData = await getEventData(); // get data fro API
+          const itemsPerInner = 5;
+          const itemsPerPage = 20;
+          const totalItems = fetchedData.length;
+          const totalPages = Math.ceil(totalItems / 20);
+          const containerDivs = document.querySelectorAll(".browse-inner");
 
-       const festivalElement = `
+          //print the information
+          function displayEventData(dataToShow) {
+            containerDivs.forEach((div) => {
+              div.innerHTML = "";
+            });
+
+            //Output while looping through received data
+            for (let j = 0; j < dataToShow.length; j++) {
+              const eventData = dataToShow[j];
+              const pageIndex = Math.floor(j / itemsPerInner);
+              console.log(eventData);
+              //Pagination processing: stops when there is too much data and the page exceeds the page limit.
+              if (pageIndex >= containerDivs.length) {
+                break;
+              }
+
+              const festivalElement = `
         <div class="col-md-2 w3l-movie-gride-agile">
-          <a href="single.html" class="hvr-shutter-out-horizontal">
+          <a href="single.html?id=${eventData.id}" class="hvr-shutter-out-horizontal">
             <img src="${eventData.poster}" title="${eventData.title}" alt="${eventData.title}" class="festival-img">
           </a>
           <div class="mid-1">
             <div class="w3l-movie-text">
-              <h6><a href="single.html">${eventData.title}</a></h6>
+              <h6><a href="single.html?id=${eventData.id}">${eventData.title}</a></h6>
             </div>
             <div class="mid-2">
               <div class="festival-details">
@@ -138,107 +177,109 @@ document.addEventListener('DOMContentLoaded', async () => {
         </div>
       `;
 
-      //Print information
-      containerDivs[pageIndex].insertAdjacentHTML('beforeend', festivalElement);
-      }
-    }
-    
-    //Clear the page
-    function clearContainerDivs(){
-      containerDivs.forEach((div) => {
-        div.innerHTML= '';
-      })
-    }
+              //Print information
+              containerDivs[pageIndex].insertAdjacentHTML(
+                "beforeend",
+                festivalElement
+              );
+            }
+          }
 
-    //Generate pagination dynamically
-    const paginationContainer = document.querySelector('.blog-pagenat-wthree ul');
-    paginationContainer.innerHTML = '';
-
-    for (let i = 1; i <= totalPages; i++) {
-      const pageLink = document.createElement('li');
-      const pageAnchor = document.createElement('a');
-      pageAnchor.href = `genres.html?page=${i}`; //Set page link
-      pageAnchor.textContent = i; //Set page number
-
-      pageLink.appendChild(pageAnchor);
-      paginationContainer.appendChild(pageLink);
-
-      pageAnchor.addEventListener('click', async (event) => {
-      event.preventDefault();
-
-      const pageClicked = parseInt(event.target.textContent);
-      const startIndex = (pageClicked -1)*itemsPerPage;
-      const endIndex = startIndex + itemsPerPage;
-      const dataToShow = fetchedData.slice(startIndex, endIndex);
-
-      displayEventData(dataToShow);
-      });
-    }
-      
-    //Display initial data on page load 
-    function setCurrentPageData() {
-      const startIndex = (currentPage - 1) * itemsPerPage;
-      const endIndex = startIndex + itemsPerPage;
-      const dataToShow = fetchedData.slice(startIndex, endIndex);
-
-      displayEventData(dataToShow);
-    }
-
-  setCurrentPageData();
-
-   }catch (error) {
-    console.error('Error fetching event data:', error);
-  }
-
-  // Set eventListener (When select the specific region)
-  const regions = document.querySelectorAll('.multi-column-dropdown a');
-    regions.forEach(region => {
-      region.addEventListener('click', async (event) => {
-        event.preventDefault();
-        
-        region = region.textContent;
-
-        try {
-          // get parameter 'page' from URL
-          const urlParams = new URLSearchParams(window.location.search);
-          const currentPage = parseInt(urlParams.get('page')) || 1; //Default = 1
-          fetchedData = await getRegionData(region);
-          totalItems = fetchedData.length;
-          totalPages = Math.ceil(totalItems / 20);
-          containerDivs = document.querySelectorAll('.browse-inner');
-          const itemsPerInner = 5;
-
-           // initialize the container
-          containerDivs.forEach(containerDiv => {
-          containerDiv.innerHTML = '';
-          });
-
-          console.log(fetchedData);
- 
-          //print the information
-          function displayEventData(dataToShow){
+          //Clear the page
+          function clearContainerDivs() {
             containerDivs.forEach((div) => {
-              div.innerHTML = '';
+              div.innerHTML = "";
             });
+          }
 
-            //Output while looping through received data
-            for (let j = 0; j < dataToShow.length; j++) {
-              const eventData =dataToShow[j];
-              const pageIndex = Math.floor(j/itemsPerInner);
+          //Generate pagination dynamically
+          const paginationContainer = document.querySelector(
+            ".blog-pagenat-wthree ul"
+          );
+          paginationContainer.innerHTML = "";
 
-               //Pagination processing: stops when there is too much data and the page exceeds the page limit.
-              if (pageIndex >= containerDivs.length) {
-                break;
-              }
+          for (let i = 1; i <= totalPages; i++) {
+            const pageLink = document.createElement("li");
+            const pageAnchor = document.createElement("a");
+            pageAnchor.href = `genres.html?page=${i}`; //Set page link
+            pageAnchor.textContent = i; //Set page number
 
-              const festivalElement = `
+            pageLink.appendChild(pageAnchor);
+            paginationContainer.appendChild(pageLink);
+
+            pageAnchor.addEventListener("click", async (event) => {
+              event.preventDefault();
+
+              const pageClicked = parseInt(event.target.textContent);
+              const startIndex = (pageClicked - 1) * itemsPerPage;
+              const endIndex = startIndex + itemsPerPage;
+              const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+              displayEventData(dataToShow);
+            });
+          }
+
+          //Display initial data on page load
+          function setCurrentPageData() {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+            displayEventData(dataToShow);
+          }
+
+          setCurrentPageData();
+        } catch (error) {
+          console.error("Error fetching event data:", error);
+        }
+
+        // Set eventListener (When select the specific region)
+        const regions = document.querySelectorAll(".multi-column-dropdown a");
+        regions.forEach((region) => {
+          region.addEventListener("click", async (event) => {
+            event.preventDefault();
+
+            region = region.textContent;
+
+            try {
+              // get parameter 'page' from URL
+              const urlParams = new URLSearchParams(window.location.search);
+              const currentPage = parseInt(urlParams.get("page")) || 1; //Default = 1
+              fetchedData = await getRegionData(region);
+              totalItems = fetchedData.length;
+              totalPages = Math.ceil(totalItems / 20);
+              containerDivs = document.querySelectorAll(".browse-inner");
+              const itemsPerInner = 5;
+
+              // initialize the container
+              containerDivs.forEach((containerDiv) => {
+                containerDiv.innerHTML = "";
+              });
+
+              //print the information
+              function displayEventData(dataToShow) {
+                containerDivs.forEach((div) => {
+                  div.innerHTML = "";
+                });
+
+                //Output while looping through received data
+                for (let j = 0; j < dataToShow.length; j++) {
+                  const eventData = dataToShow[j];
+                  const pageIndex = Math.floor(j / itemsPerInner);
+                  console.log(eventData);
+                  //Pagination processing: stops when there is too much data and the page exceeds the page limit.
+                  if (pageIndex >= containerDivs.length) {
+                    break;
+                  }
+
+                  const festivalElement = `
                 <div class="col-md-2 w3l-movie-gride-agile">
-                  <a href="single.html" class="hvr-shutter-out-horizontal">
+                  <a href="single.html?id=${eventData.id}" class="hvr-shutter-out-horizontal">
                     <img src="${eventData.poster}" title="${eventData.title}" alt="${eventData.title}" class="festival-img">
                   </a>
                   <div class="mid-1">
                     <div class="w3l-movie-text">
-                      <h6><a href="single.html">${eventData.title}</a></h6>
+                      <h6><a href="single.html?id=${eventData.id}">${eventData.title}</a></h6>
                     </div>
                     <div class="mid-2">
                       <div class="festival-details">
@@ -253,120 +294,134 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
                 `;
 
-              //Print information
-              containerDivs[pageIndex].insertAdjacentHTML('beforeend', festivalElement);
+                  //Print information
+                  containerDivs[pageIndex].insertAdjacentHTML(
+                    "beforeend",
+                    festivalElement
+                  );
+                }
               }
+
+              //Clear the page
+              function clearContainerDivs() {
+                containerDivs.forEach((div) => {
+                  div.innerHTML = "";
+                });
+              }
+
+              //Generate pagination dynamically
+              const paginationContainer = document.querySelector(
+                ".blog-pagenat-wthree ul"
+              );
+              paginationContainer.innerHTML = "";
+
+              for (let i = 1; i <= totalPages; i++) {
+                const pageLink = document.createElement("li");
+                const pageAnchor = document.createElement("a");
+                pageAnchor.href = `genres.html?page=${i}`; //Set page link
+                pageAnchor.textContent = i; //Set page number
+
+                pageLink.appendChild(pageAnchor);
+                paginationContainer.appendChild(pageLink);
+
+                pageAnchor.addEventListener("click", async (event) => {
+                  event.preventDefault();
+
+                  const pageClicked = parseInt(event.target.textContent);
+                  const startIndex = (pageClicked - 1) * 20;
+                  const endIndex = startIndex + 20;
+                  const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+                  displayEventData(dataToShow);
+                });
+              }
+
+              //Display initial data on page load
+              function setCurrentPageData() {
+                const startIndex = (currentPage - 1) * 20;
+                const endIndex = startIndex + 20;
+                const dataToShow = fetchedData.slice(startIndex, endIndex);
+
+                displayEventData(dataToShow);
+              }
+
+              setCurrentPageData();
+            } catch (error) {
+              console.error("Error fetching festival data:", error);
             }
-    
-          //Clear the page
-          function clearContainerDivs(){
-            containerDivs.forEach((div) => {
-            div.innerHTML= '';
-          })}
-
-          //Generate pagination dynamically
-          const paginationContainer = document.querySelector('.blog-pagenat-wthree ul');
-          paginationContainer.innerHTML = '';
-
-          for (let i = 1; i <= totalPages; i++) {
-            const pageLink = document.createElement('li');
-            const pageAnchor = document.createElement('a');
-            pageAnchor.href = `genres.html?page=${i}`; //Set page link
-            pageAnchor.textContent = i; //Set page number
-
-            pageLink.appendChild(pageAnchor);
-            paginationContainer.appendChild(pageLink);
-
-            pageAnchor.addEventListener('click', async (event) => {
-              event.preventDefault();
-
-              const pageClicked = parseInt(event.target.textContent);
-              const startIndex = (pageClicked -1)*20;
-              const endIndex = startIndex + 20;
-              const dataToShow = fetchedData.slice(startIndex, endIndex);
-
-              displayEventData(dataToShow);
-            });
-          }
-      
-          //Display initial data on page load 
-          function setCurrentPageData() {
-            const startIndex = (currentPage - 1) * 20
-            const endIndex = startIndex + 20;
-            const dataToShow = fetchedData.slice(startIndex, endIndex);
-
-            displayEventData(dataToShow);
-          }
-
-          setCurrentPageData();
-
-        }catch (error) {
-          console.error('Error fetching festival data:', error);
-        }
+          });
+        });
       });
-    });
-  });
-
-	 </script>
+    </script>
   </head>
-        
+
   <body>
     <!-- header -->
     <div class="header"></div>
     <!-- //header -->
     <!-- //bootstrap-pop-up -->
-	
-    <!-- nav --> 
+
+    <!-- nav -->
     <div class="movies_nav">
       <div class="container">
         <nav class="navbar navbar-default">
           <div class="navbar-header navbar-left">
-					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-            <nav>
-							<ul class="nav navbar-nav">
-								<li class="w3_home_act"><a href="index.html">Home</a></li>
-								<li class="dropdown active">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">region <b class="caret"></b></a>
-								  <ul class="dropdown-menu multi-column columns-3">
-					  			  <li>
-										  <div class="col-sm-4">
-											  <ul class="multi-column-dropdown">
-												  <li><a href="genres.html">서울</a></li>
-												  <li><a href="genres.html">도</a></li>
-												  <li><a href="genres.html">대구</a></li>
-												  <li><a href="genres.html">광주</a></li>													  
-                          <li><a href="genres.html">세종</a></li>
-												</ul>
-											</div>
-											<div class="col-sm-4">
-											  <ul class="multi-column-dropdown">
-												  <li><a href="genres.html">인천</a></li>
-												  <li><a href="genres.html">대전</a></li>
-												  <li><a href="genres.html">제주</a></li>
-												  <li><a href="genres.html">부산</a></li>
-												  <li><a href="genres.html">울산</a></li>
-											  </ul>
-										  </div>
-										  <div class="clearfix"></div>
-									  </li>
-								  </ul>
-								</li>
-							</ul>
-						</nav>
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
           </div>
-        </nav>	
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse navbar-right"
+            id="bs-example-navbar-collapse-1"
+          >
+            <nav>
+              <ul class="nav navbar-nav">
+                <li class="w3_home_act"><a href="index.html">Home</a></li>
+                <li class="dropdown active">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                    >region <b class="caret"></b
+                  ></a>
+                  <ul class="dropdown-menu multi-column columns-3">
+                    <li>
+                      <div class="col-sm-4">
+                        <ul class="multi-column-dropdown">
+                          <li><a href="genres.html">서울</a></li>
+                          <li><a href="genres.html">도</a></li>
+                          <li><a href="genres.html">대구</a></li>
+                          <li><a href="genres.html">광주</a></li>
+                          <li><a href="genres.html">세종</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-sm-4">
+                        <ul class="multi-column-dropdown">
+                          <li><a href="genres.html">인천</a></li>
+                          <li><a href="genres.html">대전</a></li>
+                          <li><a href="genres.html">제주</a></li>
+                          <li><a href="genres.html">부산</a></li>
+                          <li><a href="genres.html">울산</a></li>
+                        </ul>
+                      </div>
+                      <div class="clearfix"></div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </nav>
       </div>
     </div>
     <!-- //nav -->
-    
+
     <!-- /w3l-medile-movies-grids -->
     <div class="general-agileits-w3l">
       <div class="w3l-medile-movies-grids">
@@ -375,7 +430,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <!--/browse-agile-w3ls -->
           <div class="browse-agile-w3ls general-w3ls">
             <div class="tittle-head">
-              <h4 class="latest-text">List of Festivals </h4>
+              <h4 class="latest-text">List of Festivals</h4>
               <div class="container">
                 <div class="agileits-single-top">
                   <ol class="breadcrumb">
@@ -408,11 +463,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
               </div>
             </div>
-					</div>
+          </div>
           <!--//browse-agile-w3ls -->
           <div class="blog-pagenat-wthree">
-            <ul>
-            </ul>
+            <ul></ul>
           </div>
         </div>
         <!-- //movie-browse-agile -->
@@ -422,29 +476,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     </div>
     <!-- //comedy-w3l-agileits -->
     <!-- footer -->
-        
+
     <!-- //footer -->
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <script>
-    $(document).ready(function(){
-        $(".dropdown").hover(            
-            function() {
-                $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
-                $(this).toggleClass('open');        
-            },
-            function() {
-                $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
-                $(this).toggleClass('open');      
-            }
+      $(document).ready(function () {
+        $(".dropdown").hover(
+          function () {
+            $(".dropdown-menu", this).stop(true, true).slideDown("fast");
+            $(this).toggleClass("open");
+          },
+          function () {
+            $(".dropdown-menu", this).stop(true, true).slideUp("fast");
+            $(this).toggleClass("open");
+          }
         );
-    });
+      });
     </script>
     <!-- //Bootstrap Core JavaScript -->
     <!-- here stars scrolling icon -->
-	  <script type="text/javascript">
-      $(document).ready(function() {
-                /*
+    <script type="text/javascript">
+      $(document).ready(function () {
+        /*
                     var defaults = {
                     containerID: 'toTop', // fading element id
                     containerHoverID: 'toTopHover', // fading element hover id
@@ -452,12 +506,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                     easingType: 'linear' 
                     };
                 */
-                                    
-                $().UItoTop({ easingType: 'easeOutQuart' });
-                                    
-                });
+
+        $().UItoTop({ easingType: "easeOutQuart" });
+      });
     </script>
     <!-- //here ends scrolling icon -->
-    <a href="#" id="toTop" style="display: none;"><span id="toTopHover"></span>To Top</a>
+    <a href="#" id="toTop" style="display: none"
+      ><span id="toTopHover"></span>To Top</a
+    >
   </body>
 </html>
