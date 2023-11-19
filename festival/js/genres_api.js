@@ -1,7 +1,7 @@
 const BASE_URL = "http://54.180.73.89:8080/event";
 const SEARCH_URL = "http://54.180.73.89:8080/event/search";
 
-async function getEventData() {
+export async function getEventData() {
   try {
     const response = await fetch(`${BASE_URL}`);
     if (!response.ok) {
@@ -15,7 +15,7 @@ async function getEventData() {
   }
 }
 
-async function getRegionData(region) {
+export async function getRegionData(region) {
   try {
     const response = await fetch(`${SEARCH_URL}?region=${region}`);
     if (!response.ok) {
