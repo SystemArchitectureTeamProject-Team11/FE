@@ -26,7 +26,7 @@ jobs:
         working-directory: ./festival
 
       - name: Build
-        run: parcel build index.html --no-minify
+        run: parcel build index.html
         working-directory: ./festival
         env:
           CI: ''
