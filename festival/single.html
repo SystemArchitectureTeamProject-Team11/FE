@@ -1,0 +1,433 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      One Movies an Entertainment Category Flat Bootstrap Responsive Website
+      Template | Single :: w3layouts
+    </title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="keywords"
+      content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+    />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="application/x-javascript">
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+      	function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <!-- //for-mobile-apps -->
+    <link
+      href="css/bootstrap.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/medile.css" rel="stylesheet" type="text/css" />
+    <link href="css/single.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="css/contactstyle.css"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="css/faqstyle.css"
+      type="text/css"
+      media="all"
+    />
+    <!-- news-css -->
+    <link
+      rel="stylesheet"
+      href="news-css/news.css"
+      type="text/css"
+      media="all"
+    />
+    <!-- //news-css -->
+    <!-- list-css -->
+    <link
+      rel="stylesheet"
+      href="list-css/list.css"
+      type="text/css"
+      media="all"
+    />
+    <!-- //list-css -->
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <link
+      href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+          event.preventDefault();
+          $("html,body").animate(
+            { scrollTop: $(this.hash).offset().top },
+            1000
+          );
+        });
+      });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <link
+      href="css/owl.carousel.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <script src="js/owl.carousel.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#owl-demo").owlCarousel({
+          autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+          items: 5,
+          itemsDesktop: [640, 5],
+          itemsDesktopSmall: [414, 4],
+        });
+      });
+    </script>
+    <script src="js/simplePlayer.js"></script>
+    <script>
+      $("document").ready(function () {
+        $("#video").simplePlayer();
+      });
+    </script>
+    <script src="js/api.js"></script>
+    <script>
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // 페이지 로드 시 id 값을 가져옴
+      const eventId = getQueryParam("id");
+    </script>
+    <script>
+      // 페이지가 로드될 때 이벤트 데이터를 가져와서 화면에 표시합니다.
+      document.addEventListener("DOMContentLoaded", async () => {
+        const eventData = await getEventData(eventId);
+        if (eventData) {
+          console.log(eventData);
+          updateEventDetails(eventData);
+        } else {
+          console.error("No event data to display.");
+        }
+      });
+
+      // 서버로부터 받은 데이터를 HTML 요소에 넣는 함수
+      function updateEventDetails(data) {
+        // 이미지 소스를 업데이트합니다.
+        document.querySelector(".w3ls_market_video_grid1 img").src =
+          data.poster;
+        document.querySelector(".w3ls_market_video_grid1 img").alt = data.title;
+
+        // 텍스트 컨텐츠를 업데이트합니다.
+        document.querySelector(
+          ".agile_tv_series_grid_right .fexi_header"
+        ).textContent = data.title;
+
+        // 각 항목별 텍스트를 업데이트합니다.
+        const paragraphs = document.querySelectorAll(
+          ".agile_tv_series_grid_right .fexi_header_para span"
+        );
+
+        paragraphs[0].textContent = `isStart: ${data.isStart || ""}`;
+        paragraphs[1].textContent = `description: ${data.introduction || ""}`;
+        paragraphs[2].textContent = `startDate: ${data.startDate}`;
+        paragraphs[3].textContent = `endDate: ${data.endDate}`;
+        paragraphs[4].textContent = `category: ${data.category}`;
+        paragraphs[5].textContent = `region: ${data.region}`;
+        paragraphs[6].textContent = `place: ${data.place}`;
+        paragraphs[7].textContent = `performer: ${data.performer}`;
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- header -->
+    <div class="header">
+      <div class="container">
+        <div class="w3layouts_logo">
+          <a href="index.html"
+            ><h1>Your<span>Festival</span></h1></a
+          >
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- //header -->
+    <!-- bootstrap-pop-up -->
+    <div
+      class="modal video-modal fade"
+      id="myModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModal"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            Sign In & Sign Up
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <section>
+            <div class="modal-body">
+              <div class="w3_login_module">
+                <div class="module form-module">
+                  <div class="toggle">
+                    <i class="fa fa-times fa-pencil"></i>
+                    <div class="tooltip">Click Me</div>
+                  </div>
+                  <div class="form">
+                    <h3>Login to your account</h3>
+                    <form action="#" method="post">
+                      <input
+                        type="text"
+                        name="Username"
+                        placeholder="Username"
+                        required=""
+                      />
+                      <input
+                        type="password"
+                        name="Password"
+                        placeholder="Password"
+                        required=""
+                      />
+                      <input type="submit" value="Login" />
+                    </form>
+                  </div>
+                  <div class="form">
+                    <h3>Create an account</h3>
+                    <form action="#" method="post">
+                      <input
+                        type="text"
+                        name="Username"
+                        placeholder="Username"
+                        required=""
+                      />
+                      <input
+                        type="password"
+                        name="Password"
+                        placeholder="Password"
+                        required=""
+                      />
+                      <input
+                        type="email"
+                        name="Email"
+                        placeholder="Email Address"
+                        required=""
+                      />
+                      <input
+                        type="text"
+                        name="Phone"
+                        placeholder="Phone Number"
+                        required=""
+                      />
+                      <input type="submit" value="Register" />
+                    </form>
+                  </div>
+                  <div class="cta"><a href="#">Forgot your password?</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(".toggle").click(function () {
+        // Switches the Icon
+        $(this).children("i").toggleClass("fa-pencil");
+        // Switches the forms
+        $(".form").animate(
+          {
+            height: "toggle",
+            "padding-top": "toggle",
+            "padding-bottom": "toggle",
+            opacity: "toggle",
+          },
+          "slow"
+        );
+      });
+    </script>
+    <!-- //bootstrap-pop-up -->
+    <!-- nav -->
+    <div class="movies_nav">
+      <div class="container">
+        <!-- <nav class="navbar navbar-default">
+          <div class="navbar-header navbar-left">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div
+            class="collapse navbar-collapse navbar-right"
+            id="bs-example-navbar-collapse-1"
+          >
+            <nav>
+              <ul class="nav navbar-nav">
+                <li class="w3_home_act"><a href="index.html">Home</a></li>
+
+                <li><a href="series.html">tv - series</a></li>
+                <li><a href="news.html">news</a></li>
+
+                <li><a href="short-codes.html">Short Codes</a></li>
+                <li><a href="list.html">A - z list</a></li>
+              </ul>
+            </nav>
+          </div>
+        </nav> -->
+      </div>
+    </div>
+
+    <!-- Latest-tv-series -->
+    <div class="Latest-tv-series">
+      <h4 class="latest-text w3_latest_text w3_home_popular">
+        Festival Information
+      </h4>
+      <div class="container">
+        <section class="slider">
+          <div class="flexslider">
+            <ul class="slides">
+              <li>
+                <div class="agile_tv_series_grid">
+                  <div class="col-md-6 agile_tv_series_grid_left">
+                    <div class="w3ls_market_video_grid1">
+                      <img src="" alt="" class="img-responsive" />
+                    </div>
+                  </div>
+                  <div class="col-md-6 agile_tv_series_grid_right">
+                    <p class="fexi_header">title</p>
+                    <p class="fexi_header_para">
+                      <span>isStart<label>:</label></span>
+                    </p>
+                    <br />
+                    <p class="fexi_header_para">
+                      <span>description<label>:</label></span>
+                    </p>
+                    <br />
+                    <p class="fexi_header_para">
+                      <span>startDate<label>:</label></span>
+                    </p>
+                    <br />
+                    <p class="fexi_header_para">
+                      <span>endDate<label>:</label></span>
+                    </p>
+                    <br />
+                    <p class="fexi_header_para">
+                      <span>category<label>:</label></span>
+                    </p>
+                    <br />
+                    <p class="fexi_header_para">
+                      <span>region<label>:</label></span>
+                    </p>
+                    <br />
+                    <p class="fexi_header_para">
+                      <span>place<label>:</label></span>
+                    </p>
+                    <br />
+                    <p class="fexi_header_para">
+                      <span>performer<label>:</label></span>
+                    </p>
+                    <br />
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- flexSlider -->
+        <link
+          rel="stylesheet"
+          href="css/flexslider.css"
+          type="text/css"
+          media="screen"
+          property=""
+        />
+        <script defer src="js/jquery.flexslider.js"></script>
+        <script type="text/javascript">
+          $(window).load(function () {
+            $(".flexslider").flexslider({
+              animation: "slide",
+              start: function (slider) {
+                $("body").removeClass("loading");
+              },
+            });
+          });
+        </script>
+        <!-- //flexSlider -->
+      </div>
+    </div>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".dropdown").hover(
+          function () {
+            $(".dropdown-menu", this).stop(true, true).slideDown("fast");
+            $(this).toggleClass("open");
+          },
+          function () {
+            $(".dropdown-menu", this).stop(true, true).slideUp("fast");
+            $(this).toggleClass("open");
+          }
+        );
+      });
+    </script>
+    <!-- //Bootstrap Core JavaScript -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+      $(document).ready(function () {
+        /*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+
+        $().UItoTop({ easingType: "easeOutQuart" });
+      });
+    </script>
+    <!-- //here ends scrolling icon -->
+  </body>
+</html>

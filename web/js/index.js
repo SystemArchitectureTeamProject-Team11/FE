@@ -1,0 +1,12 @@
+import "./api.js";
+import "./bootstrap.min.js";
+import "./easing.js";
+import "./genres_api.js";
+import "./jquery-2.1.4.min.js";
+import "./jquery.flexslider.js";
+import "./jquery.magnific-popup.js";
+import "./jquery.slidey.js";
+import "./move-top.js";
+//import "./owl.carousel.js";
+//import "./simplePlayer.js";
+import "./css/index.css";
