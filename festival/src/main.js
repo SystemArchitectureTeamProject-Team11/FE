@@ -1,5 +1,5 @@
 require("./main.css");
-
+require("./scss/main.scss");
 import "../js/jquery-2.1.4.min.js";
 import "../js/bootstrap.min.js";
 import "../js/jquery.flexslider.js";
