@@ -21,17 +21,21 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v2
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          path: festival/node_modules  
+          key: ${{ runner.OS }}-build-${{ hashFiles('festival/**/package-lock.json') }}  # festival 디렉토리 내부의 package-lock.json을 참조
           restore-keys: |
             ${{ runner.OS }}-build-
             ${{ runner.OS }}-
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          cd festival
+          npm install
 
       - name: Build
-        run: parcel build index.html --no-minify
+        run: |
+          cd festival
+          parcel build index.html --no-minify
 
       - name: Deploy
         env:
